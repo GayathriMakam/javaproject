@@ -1,0 +1,60 @@
+package suma;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class add_data {
+		public void add() throws IOException  {
+			String cs = "jdbc:mysql://localhost:3306/carmanagement";
+			String query = "insert into products(id,brand,model,amount)" +"values(?,?,?,?)";
+			try(	// step 1
+					Connection conn = DriverManager.getConnection(cs,"root","Mounika123");
+					
+					//step 2
+					PreparedStatement pstmt = conn.prepareStatement(query);
+				){
+					BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+					int count = 0;
+					boolean flag = true;
+					
+					String id;
+					String productname;
+					String brand;
+					String amount;
+					String ch;
+					
+					while(flag) {
+						System.out.println("Enter id : ");
+						id = reader.readLine();
+						System.out.println("Enter brand :");
+						brand = reader.readLine();
+						System.out.println("Enter model ");
+						model = reader.readLine();
+						System.out.println("Enter amount ");
+					        amount = reader.readLine();
+						 
+						//step 3
+						pstmt.setString(1, id);
+						pstmt.setString(2, brand);
+						pstmt.setString(3, model);
+						pstmt.setString(4, amount);
+						count +=pstmt.executeUpdate();
+						// It is the insertion of multiple records
+						System.out.println ("Do you want to continue Y/N");
+						ch = reader.readLine();
+						if(ch.toUpperCase().charAt(0) == 'N')
+							flag = false;
+					}
+					System.out.println (count+" Records Inserted");
+					
+					// step 4
+					conn.close();
+				}catch (SQLException e) {
+			        e.printStackTrace();
+			     }
+		}
+	}

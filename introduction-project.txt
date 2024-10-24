@@ -1,0 +1,92 @@
+package suma;
+import java.util.Scanner;
+import java.io.IOException;
+public class menu {
+
+	public static void main(String[] args)throws IOException {
+	
+				    int usertype = 0;
+				    int adminno = 0;
+				    int empno = 0;
+				    Scanner sc = new Scanner(System.in);
+				    System.out.println("Welcome to CAR MANAGEMENT SYSTEM ");
+				    while(usertype != 3) {
+				    	System.out.println("Menu");
+				    	System.out.println("\t 1. Admin");
+				    	System.out.println("\t 2. user");
+				    	System.out.println("\t 3. Exit");
+				    	System.out.println("=========================================");
+				    	System.out.println("Enter Menu No:");
+				    	usertype = sc.nextInt();
+				    	switch(usertype) {
+				    	case 1:
+				    		  System.out.println("Welcome to admin Module");
+				    		  while(adminno != 5) {
+		      System.out.println("*Menu");
+		                                System.out.println("\t 1. Add Products");
+		                                System.out.println("\t 2. View Products");
+		                                System.out.println("\t 3. Update Products");
+		                                System.out.println("\t 4. Delete Products");
+		                                System.out.println("\t 5. Exit");
+		                              
+		       System.out.println("====================================");
+		                                 System.out.println("Enter Menu No:");
+		                                 adminno = sc.nextInt();
+		                                 switch(adminno) {
+		                                 case 1:
+		                                	 System.out.println("Welcome to add products");
+		                                	add_data ad = new add_data();
+		                                	ad.add();
+		                                	  break;
+		                                 case 2:
+		                                	 System.out.println("Welcome to view products");
+		                                	 view_data vd = new view_data();
+			                                	vd.view();
+		                                	
+		                                	 break;
+		                                 case 3:
+		                                	 System.out.println("Welcome to update products");
+		                                	 update_data ud = new update_data();
+			                                	ud.update();
+		                                	  	 break;
+		                                 case 4:
+		                                	 System.out.println("Welcome to delete products");
+		                                	 delete_data dd = new delete_data();
+			                                dd.delete();
+		                                	
+		                                	 break;
+		                                     default:
+		                                	      System.out.println("Admin Exit");
+		                                	 
+		                                 }
+				    			  
+				    		  }
+				    		  break;
+				    	case 2:
+				    		System.out.println("Welcome to user Module");
+				    		while( empno != 3)
+				    		 {
+				    System.out.println("Menu*");
+				                      System.out.println("\t 1.choose");
+				                       System.out.println("\t 2. View Bill");
+				                       System.out.println("\t 3. Exit");
+				    System.out.println("========================================");
+				                   System.out.println("Enter Menu No:");
+				                  
+				                   switch(empno) {
+				                   case 1:
+				                	   System.out.println("welcome to choose"); 
+				                	   break;
+				                   
+				                   case 2:
+				                	   System.out.println("Welcome to view bill");
+				                	   break;
+				                	   default:
+				                		   System.out.println("Thank You Visit Again...");
+				                   }
+				    		}
+				    	}
+				    }
+
+		}
+			}

@@ -1,0 +1,13 @@
+create database Info_cars;
+use Info_cars;
+create table details(id int(11),
+                     brand varchar(255),
+		     model varchar(255),
+                     cost float(8,2));
+    select*from details;
+    insert into details values(100,"TATA Tigor",2023,20000); 
+    insert into details values(101,"BMW X5",2023,27000);                 
+	insert into details values(102,"Ford Figo",2021,40000);                
+    insert into details values(103,"Honda Civis",2023,18000);
+    insert into details values(104,"Audi Q5",2018,10000);
+       select*from details;
